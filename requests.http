@@ -1,5 +1,5 @@
 ### post message
-POST http://localhost:8080/sendToQueue?queue=q.test2
+POST http://localhost:8080/sendToQueue?queue=q.test1
 Content-Type: application/json
 
 {
@@ -24,4 +24,29 @@ Content-Type: application/json
 {
   "name": "[Fanout]: Hello Rabbitmq 1",
   "age": 20
+}
+
+
+### post Topic message
+POST http://localhost:8080/sendTopic?exchange=ex.test.topic&routingKey=weather.sport.london.news
+Content-Type: application/json
+
+{
+  "name": "[sendTopic]: Hello Rabbitmq 1",
+  "age": 20
+}
+
+### post Header message
+POST http://localhost:8080/sendHeaders?exchange=ex.test.header
+Content-Type: application/json
+
+{
+  "headers": {
+    "sport": "true",
+    "age": "20"
+  },
+  "message": {
+    "name": "[sendHeader]: Hello RabbitMQ 1",
+    "age": 20
+  }
 }
