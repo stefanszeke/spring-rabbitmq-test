@@ -79,5 +79,17 @@ public class MessageController {
   
       return ResponseEntity.status(HttpStatus.CREATED).body("Message sent with headers");
   }
+  @PostMapping("/sendHeaders2")
+  public ResponseEntity<String> sendMessageWithHeaders2(
+          @RequestParam("exchange") String exchange,
+          @RequestBody RequestHeaderMessage requestBody) {
+  
+      Map<String, Object> headers = requestBody.getHeaders();
+      MyMessage message = requestBody.getMessage();
+  
+      messageSender.sendHeaders2(exchange, message, headers);
+  
+      return ResponseEntity.status(HttpStatus.CREATED).body("Message sent with headers");
+  }
 
 }

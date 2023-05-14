@@ -36,8 +36,22 @@ Content-Type: application/json
   "age": 20
 }
 
-### post Header message
+### post Header message // json
 POST http://localhost:8080/sendHeaders?exchange=ex.test.header
+Content-Type: application/json
+
+{
+  "headers": {
+    "sport": "true",
+    "age": "20"
+  },
+  "message": {
+    "name": "[sendHeader]: Hello RabbitMQ 1",
+    "age": 20
+  }
+}
+### post Header2 message
+POST http://localhost:8080/sendHeaders2?exchange=ex.test.header
 Content-Type: application/json
 
 {
