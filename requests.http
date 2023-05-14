@@ -1,8 +1,27 @@
 ### post message
-POST http://localhost:8080/send/q.test
+POST http://localhost:8080/sendToQueue?queue=q.test2
 Content-Type: application/json
 
 {
-  "name": "Hello Rabbitmq",
+  "name": "[sendToQueue]: Hello Rabbitmq 1",
+  "age": 20
+}
+
+
+### post Direct message
+POST http://localhost:8080/sendDirect?exchange=ex.test.direct&routingKey=rk1
+Content-Type: application/json
+
+{
+  "name": "[Direct]: Hello Rabbitmq 2",
+  "age": 20
+}
+
+### post Fanout message
+POST http://localhost:8080/sendFanout?exchange=ex.test.fanout
+Content-Type: application/json
+
+{
+  "name": "[Fanout]: Hello Rabbitmq 1",
   "age": 20
 }
