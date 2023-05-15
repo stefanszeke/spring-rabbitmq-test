@@ -33,7 +33,7 @@ public class MessageSender {
 
   public void sendToQueue(String queue, MyMessage message) {
     rabbitTemplate.convertAndSend(queue, message);
-    System.out.println(" [x] Sent '" + message + "'" + " to queue: " + queue);
+    System.out.println("[x] Sent '" + message + "'" + " to queue: " + queue);
   }
 
   public void sendDirect(String exchange, String routingKey, MyMessage message) {
@@ -66,6 +66,9 @@ public class MessageSender {
     System.out.println("[x] Sent '" + message + "' to headers exchange: " + exchange + ", headers: " + headers);
   }
 
+
+
+  // alternative implementations
   public void sendHeaders2(String exchange, MyMessage message, Map<String, Object> headers) {
     MessageProperties messageProperties = new MessageProperties();
     messageProperties.getHeaders().putAll(headers);

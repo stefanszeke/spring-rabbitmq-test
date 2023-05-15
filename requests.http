@@ -50,7 +50,14 @@ Content-Type: application/json
     "age": 20
   }
 }
-### post Header2 message
+
+
+
+
+
+
+
+### alternate post Header2 message
 POST http://localhost:8080/sendHeaders2?exchange=ex.test.header
 Content-Type: application/json
 
